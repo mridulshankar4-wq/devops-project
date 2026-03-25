@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alertpulse-config
+data:
+  database_url: "sqlite+aiosqlite:///./alerts.db"
+  demo_enabled: "true"
+  demo_alert_interval: "3.0"
+  alert_correlation_window: "300"
+  alert_suppression_duration: "3600"
+  prometheus_scrape_interval: "10s"

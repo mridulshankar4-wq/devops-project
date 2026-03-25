@@ -1,0 +1,14 @@
+{
+  "name": "alertpulse-puppeteer",
+  "version": "1.0.0",
+  "description": "Puppeteer scripts for AlertPulse testing and screenshots",
+  "scripts": {
+    "screenshot": "node screenshot.js",
+    "smoke-test": "node smoke-test.js",
+    "load-test": "node load-test.js"
+  },
+  "dependencies": {
+    "puppeteer": "^22.0.0",
+    "axios": "^1.7.2"
+  }
+}

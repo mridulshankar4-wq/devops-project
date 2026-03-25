@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: alertpulse-backend
+  labels:
+    app: alertpulse
+spec:
+  selector:
+    app: alertpulse
+    tier: backend
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alertpulse-frontend
+  labels:
+    app: alertpulse
+spec:
+  selector:
+    app: alertpulse
+    tier: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alertpulse-prometheus
+spec:
+  selector:
+    app: prometheus
+  ports:
+    - port: 9090
+      targetPort: 9090
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alertpulse-grafana
+spec:
+  selector:
+    app: grafana
+  ports:
+    - port: 3001
+      targetPort: 3000
+  type: LoadBalancer
